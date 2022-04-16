@@ -1,0 +1,63 @@
+{% extends 'modules/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container">
+        <div class="row vertical">
+            <div class="breadcrumb col-md-12">
+                    <p><a href="{% url 'index' %}">Home</a> / Categories </p>
+                </div>
+            <div class="col-md-4">
+                <div class="breadcrumb">
+                    <p>Total Product</p>
+                </div>
+
+                <div class="breadcrumb">
+                    <p>Total Product</p>
+                </div>
+
+                <div class="breadcrumb">
+                    <p>Low Stock</p>
+                </div>
+
+
+                <div class="card card-outline-secondary">
+                    <div class="card-header">
+                        <h3 class="mb-0 text-center">Manage Brand</h3>
+                    </div>
+                    <div class="card-block">
+
+                    </div>
+                </div>
+
+                <div class="card card-outline-secondary">
+                    <div class="card-header">
+                        <h3 class="mb-0 text-center">Manage Brand</h3>
+                    </div>
+                    <div class="card-block">
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-8 center-block">
+                <div class="card card-outline-secondary">
+                    <div class="card-header">
+                        <h3 class="mb-0 text-center">Calendar</h3>
+                    </div>
+                    <div class="card-block">
+                        <div id="calendar">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'js/dashboard.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends 'modules/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container">
+        <div class="row vertical">
+            <div class="col-md-12 center-block">
+                <div class="breadcrumb">
+                    <p><a href="{% url 'index' %}">Home</a> / Products </p>
+                </div>
+                <div class="card card-outline-secondary">
+                    <div class="card-header">
+                        <h3 class="mb-0 text-center">Manage Products</h3>
+                    </div>
+                    <div class="card-block">
+                        <button class="btn btn-default float-right" style="margin-bottom: 20px" data-toggle="modal"
+                                data-target="#" id="btn-add-product" data-url="{% url 'create-product' %}">
+                            <i class="fa fa-plus"
+                               aria-hidden="true"></i>
+                            Add Product
+                        </button>
+                        <div id="data_table" data-url="{% url 'products-list' %}">
+
+                        </div>
+                    </div>
+                    <!--/card-block-->
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" tabindex="-1" role="dialog" id="addProductModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Add Product</h4>
+                    </div>
+                    <div class="modal-body">
+
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+        <div class="modal fade" tabindex="-1" role="dialog" id="editBrandModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="submit" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Edit Brand</h4>
+                    </div>
+                    <div class="modal-body">
+
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+        <div class="modal fade" tabindex="-1" role="dialog" id="removeCategoryModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="submit" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Remove Category</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Do you want to really delete?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                        <button type="submit" class="btn btn-danger" id="btn-yes-delete">Yes</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'js/product.js' %}"></script>
+{% endblock %}

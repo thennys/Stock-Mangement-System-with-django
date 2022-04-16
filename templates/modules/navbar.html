@@ -1,0 +1,48 @@
+ <nav class="navbar navbar-toggleable-lg" style="background-color: black; box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.2), 0 2px 20px 0 rgba(0, 0, 0, 0.19)">
+            <a class="navbar-brand" href="{% url 'index' %}">STOCK MANAGEEMNT SYSTEM</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'dashboard' %}"><i class="fa fa-list-alt" aria-hidden="true"></i> Dashboard</a>
+                    </li>
+                    <li class="nav-item" id="navBrand">
+                        <a class="nav-link" href="{% url 'products' %}"><i class="fa fa-gamepad" aria-hidden="true"></i></i> Products</a>
+                    </li>
+                    <li class="nav-item" id="navBrand">
+                        <a class="nav-link" href="{% url 'brand' %}"><i class="fa fa-envira" aria-hidden="true"></i> Brands</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'categories' %}"><i class="fa fa-list" aria-hidden="true"></i> Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'orders' %}"><i class="fa fa-cubes" aria-hidden="true"></i></i> Orders</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'report' %}"><i class="fa fa-line-chart" aria-hidden="true"></i></i> Report</a>
+                    </li>
+                </ul>
+                {% if user.is_authenticated %}
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                               <i class="fa fa-user" aria-hidden="true"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <div class="dropdown-item" style="color: cornflowerblue">{{ user|capfirst }}</div>
+                            <a class="dropdown-item" href="#">Settings</a>
+                            <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </ul>
+                    </li>
+                </ul>
+                {% endif %}
+
+            </div>
+        </nav>

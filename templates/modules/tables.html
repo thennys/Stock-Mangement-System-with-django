@@ -1,0 +1,36 @@
+<table class="table table-bordered" id="brandTable">
+    <thead>
+        <tr>
+            <th width="5%">ID</th>
+            <th width="50%">Brand Name</th>
+            <th>Status</th>
+            <th width="20%">Options</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% if brands|length < 1 %}
+        <tr>
+        <td colspan="4" class="text-center">No data found, please add some data!</td>
+        </tr>
+    {% else %}
+        {% for brand in brands %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ brand.name }}</td>
+                <td><label {% if brand.status == '1' %}class="badge badge-success" {% else %} class="badge badge-danger" {% endif %}>{{ brand.get_status_display }}</label></td>
+                <td>
+                    <button class="btn btn-danger" id="btn-delete" data-url="{% url 'brand_delete' brand.id %}" data-toggle="modal"
+                                data-target="#removeBrandModal">
+                        <span class="glyphicon glyphicon-trash"></span>
+                        Delete
+                    </button>
+                    <button class="btn btn-info show-form-delete" id="btn-update" data-url="{% url 'edit-brand' brand.id %}">
+                        <span class="glyphicon glyphicon-trash"></span>
+                        Edit
+                    </button>
+                </td>
+            </tr>
+        {% endfor %}
+    {% endif %}
+    </tbody>
+</table>

@@ -1,0 +1,21 @@
+<form class="form update-form" autocomplete="off" method="post">
+    <div class="form-group">
+        <label for="brandName">Name</label>
+        <input type="text" class="form-control" name="brandName" id="brandName" required="" autocomplete="off"
+               value="{{ brand.name }}">
+    </div>
+    <div class="form-group">
+        <label for="brandStatus">Status</label>
+        <select class="form-control" name="brandStatus" id="brandStatus">
+            <option value="">SELECT</option>
+            <option value="1" {% ifequal brand.status 1 %} selected="selected"{% endifequal %}>Available</option>
+            <option value="2" {% ifequal brand.status 2 %} selected="selected"{% endifequal %}>Not Available</option>
+        </select>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" id="updateBrandBtn"
+                data-loading-text="loading..." data-url="{% url 'edit-brand' brand.id %}">Save changes
+        </button>
+    </div>
+</form>

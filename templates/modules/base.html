@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Stock Management System</title>
+
+        <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap-theme.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'font_awesome/css/font-awesome.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'jqueryui/jquery-ui.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'plugins/datatables/jquery.dataTables.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'plugins/fullcalendar/fullcalendar.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/datepicker.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+
+        <style>
+            label {
+                font-weight: bold;
+            }
+        </style>
+
+    </head>
+    <body>
+        {% include 'modules/navbar.html' %}
+        {% block content %} {% endblock %}
+
+
+    </body>
+    <script src="{% static 'jquery/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'jqueryui/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'plugins/datatables/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'plugins/fullcalendar/moment.min.js' %}"></script>
+    <script src="{% static 'plugins/fullcalendar/fullcalendar.min.js' %}"></script>
+    <script src="{% static 'plugins/datepick/jquery.datepick.js' %}"></script>
+    {% block script %}
+
+    {% endblock %}
+</html>

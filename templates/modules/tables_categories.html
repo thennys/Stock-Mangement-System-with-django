@@ -1,0 +1,36 @@
+<table class="table table-bordered" id="categoriesTable">
+    <thead>
+        <tr>
+            <th width="5%">ID</th>
+            <th width="50%">Category Name</th>
+            <th>Status</th>
+            <th width="20%">Options</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% if categories|length < 1 %}
+        <tr>
+        <td colspan="4" class="text-center">No data found, please add some data!</td>
+        </tr>
+    {% else %}
+        {% for category in categories %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ category.name }}</td>
+                <td><label {% if category.status == '1' %}class="badge badge-success" {% else %} class="badge badge-danger" {% endif %}>{{ category.get_status_display }}</label></td>
+                <td>
+                    <button class="btn btn-danger" id="btn-delete" data-url="{% url 'remove-categories' category.id %}" data-toggle="modal"
+                                data-target="#removeCategoryModal">
+                        <span class="glyphicon glyphicon-trash"></span>
+                        Delete
+                    </button>
+                    <button class="btn btn-info show-form-delete" id="btn-update" data-url="#">
+                        <span class="glyphicon glyphicon-trash"></span>
+                        Edit
+                    </button>
+                </td>
+            </tr>
+        {% endfor %}
+    {% endif %}
+    </tbody>
+</table>

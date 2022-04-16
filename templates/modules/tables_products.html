@@ -1,0 +1,46 @@
+<table class="table table-bordered" id="productsTable">
+    <thead>
+        <tr>
+            <th width="5%">ID</th>
+            <th>Product Name</th>
+            <th>Category</th>
+            <th>Brand</th>
+            <th>Code</th>
+            <th>Quantity</th>
+            <th>Rate</th>
+            <th>Status</th>
+            <th>Options</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% if products|length < 1 %}
+        <tr>
+        <td colspan="9" class="text-center">No data found, please add some data!</td>
+        </tr>
+    {% else %}
+        {% for product in products %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.category }}</td>
+                <td>{{ product.brand }}</td>
+                <td>{{ product.code }}</td>
+                <td>{{ product.quantity }}</td>
+                <td>{{ product.rate }}</td>
+                <td><label {% if product.status == 1 %} class="badge badge-success" {% else %} class="badge badge-danger" {% endif %}>{{ product.get_status_display }}</label></td>
+                <td>
+                    <button class="btn btn-danger" id="btn-delete" data-url="#" data-toggle="modal"
+                                data-target="#removeCategoryModal">
+                        <span class="glyphicon glyphicon-trash"></span>
+                        Delete
+                    </button>
+                    <button class="btn btn-info show-form-delete" id="btn-update" data-url="#">
+                        <span class="glyphicon glyphicon-trash"></span>
+                        Edit
+                    </button>
+                </td>
+            </tr>
+        {% endfor %}
+    {% endif %}
+    </tbody>
+</table>

@@ -1,0 +1,10 @@
+.vertical {
+    padding-top: 150px;
+    padding-bottom: 150px;
+}
+
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
